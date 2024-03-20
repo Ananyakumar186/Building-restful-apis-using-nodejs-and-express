@@ -56,7 +56,7 @@ router.post("/", (req, res) => {
       if (err) {
         return res.status(400).send(err);
       }
-      return res.status(200).send({ STATUS: "OK", data: results });
+      return res.status(201).send({ STATUS: "OK", data: results });
     });
 
   } catch (err) {

@@ -63,7 +63,6 @@ const saveProductDetails = function (ProductDetails, done) {
       }
       return done(undefined,ProductDetails);
     })
-    return done(undefined, product)
   });
     
   }
