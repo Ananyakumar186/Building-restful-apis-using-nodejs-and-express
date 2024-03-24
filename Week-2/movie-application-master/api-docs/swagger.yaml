@@ -1,0 +1,90 @@
+swagger: "2.0"
+info:
+  description: "Movie Api"
+  version: "1.0.0"
+  title: "Movie Detail Api"
+host: "localhost:4000"
+basePath: "/api/v1/movies"
+tags:
+  name: "Movie Details"
+  description: "Details of the Movie Application"
+schemes:
+  "http"
+paths:
+  /movies:
+    get:
+      tags:
+        "All movies"
+      summary: "Retrieve all movies"
+      security: []
+      responses: 
+        "200":
+        description: "successful operation"
+  post:
+    tags: "Create a new Movie Application"
+    summary: "Create a new Movie Application"
+    parameters:
+      in: "body"
+      name: "body"
+      required: true
+      schema:
+       type: "string"
+    responses: 
+        "200": 
+        description: "successful operation"
+  /users/{id}:
+    get:
+      tags:
+        - "Get specific movie detail "
+      summary: "Retrieve a specific movie detail"
+      parameters:
+        - in: "path"
+          name: "id"
+          required: true
+          type: integer
+          format: inte64
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid id"
+        "404":
+          description: "Movie detail not found"
+    delete:
+      tags:
+        - "Delete a specific movie detail"
+      description: "Delete a movie detail with the specific id in path"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "Id of movie detail to be deleted"
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid id"
+        "404":
+          description: "Movie Detail not found"
+    put:
+      tags:
+        - "Update a specific movie detail"
+      description: "Update values od a particular movie detail based on id"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Movie detail object that needs to be update to the list"
+          required: true
+          schema:
+            type: "string"
+        - name: "id"
+          in: "path"
+          description: "Id of movie detail to be updated"
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "201":
+          description: "Successful operation"
